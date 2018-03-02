@@ -113,7 +113,9 @@
     <ClCompile Include="net_server.c" />
     <ClCompile Include="opencv_client.cpp" />
     <ClCompile Include="opencv_server.cpp" />
+    <ClCompile Include="pic_pro.cpp" />
     <ClCompile Include="pro_vid.cpp" />
+    <ClCompile Include="resheep.cpp" />
     <ClCompile Include="rvpic.cpp" />
     <ClCompile Include="test2.cpp" />
     <ClCompile Include="vcc.cpp" />

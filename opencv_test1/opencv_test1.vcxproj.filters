@@ -48,6 +48,12 @@
     <ClCompile Include="rvpic.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="pic_pro.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resheep.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="net_server.h">

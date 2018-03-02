@@ -14,7 +14,7 @@ void on_mouse(int event, int x, int y, int flags, void *param);
 void mark_save_pic(char *buf, int x, int y, int width, int hight);
 char *rdpic(char* buf, unsigned int pic_len);
 
-int main()
+int main1111()
 {
 	IplImage *sour = cvCreateImage(Size(640, 480), IPL_DEPTH_8U, 1);
 
