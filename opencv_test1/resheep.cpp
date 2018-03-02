@@ -34,6 +34,7 @@ int main()
 		cvShowImage("ori",jpg_pic);
 		for (j = 0; j < 480 / WIDTH; j++)
 		{
+
 			cvSetImageROI(jpg_pic, CvRect(0, j * WIDTH, 640, WIDTH));
 			sprintf(filename, "F:/sc_opencv/resheep/%drr.jpg", num++);
 			cvSaveImage(filename, jpg_pic, parm);
