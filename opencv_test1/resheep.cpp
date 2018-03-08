@@ -1,3 +1,7 @@
+/***************************************************************************
+*将F:/sc_opencv/seldata/ 下的文件剪切
+*为640*10分辨率
+****************************************************************************/
 
 #include <iostream>  
 #include <opencv2/opencv.hpp>  
@@ -38,7 +42,7 @@ int main3333()
 		cvShowImage("ori",jpg_pic);
 		for (j = 0; j < 480 / WIDTH - STEP; j = j + STEP)
 		{
-
+			/*设置显示区域*/
 			cvSetImageROI(jpg_pic, CvRect(0, j * WIDTH, 640, WIDTH));
 			sprintf(filename, "F:/sc_opencv/resheep/%drr.jpg", num++);
 			cvSaveImage(filename, jpg_pic, parm);

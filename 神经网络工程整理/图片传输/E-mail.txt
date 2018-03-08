@@ -1,0 +1,2 @@
+PC端运行环境为VS2013+OPENCV2.4.9
+deamonyang@foxmail.com

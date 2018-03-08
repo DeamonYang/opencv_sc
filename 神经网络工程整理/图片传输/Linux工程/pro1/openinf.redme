@@ -1,0 +1,7 @@
+error information :Gtk-WARNING **: cannot open display:
+
+step1:export DISPLAY=:0.0
+
+step2:su firefly
+
+step3: run your app

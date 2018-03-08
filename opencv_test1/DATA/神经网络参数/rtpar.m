@@ -31,39 +31,39 @@
   fprintf(fid,'%f,',x1_step1_xoffset);
   fprintf(fid,'};\r\n');
   
-  fwrite(fid,'const float x1_step1_ymin[] = {');
-  fprintf(fid,'%f,',x1_step1_ymin);
-  fprintf(fid,'};\r\n');
+  fwrite(fid,'const float x1_step1_ymin = ');
+  fprintf(fid,'%f',x1_step1_ymin);
+  fprintf(fid,';\r\n');
   
   
   fwrite(fid,'const float b1[] = {');
   fprintf(fid,'%f,',b1);
   fprintf(fid,'};\r\n');
   
-  fwrite(fid,'const float IW1_1[] = {');
+  fwrite(fid,'const float IW1_1[15][4800] = {');
   TIW1_1 = IW1_1';
   fprintf(fid,'%f,',TIW1_1); %打印数据为先列后行所以要先把数据转化转置
   fprintf(fid,'};\r\n');
 
-  fwrite(fid,'const float b2 = {');
-  fprintf(fid,'%f,',b2);
-  fprintf(fid,'};\r\n');
+  fwrite(fid,'const float b2 = ');
+  fprintf(fid,'%f',b2);
+  fprintf(fid,';\r\n');
   
   fwrite(fid,'const float LW2_1[] = {');
   fprintf(fid,'%f,',LW2_1);
   fprintf(fid,'};\r\n');
 
-  fwrite(fid,'const float y1_step1_ymin = {');
-  fprintf(fid,'%f,',y1_step1_ymin);
-  fprintf(fid,'};\r\n');
+  fwrite(fid,'const float y1_step1_ymin = ');
+  fprintf(fid,'%f',y1_step1_ymin);
+  fprintf(fid,';\r\n');
   
-  fwrite(fid,'const float y1_step1_gain = {');
-  fprintf(fid,'%f,',y1_step1_gain);
-  fprintf(fid,'};\r\n');
+  fwrite(fid,'const float y1_step1_gain = ');
+  fprintf(fid,'%f',y1_step1_gain);
+  fprintf(fid,';\r\n');
   
-  fwrite(fid,'const float y1_step1_xoffset = {');
-  fprintf(fid,'%f,',y1_step1_xoffset);
-  fprintf(fid,'};\r\n');
+  fwrite(fid,'const float y1_step1_xoffset = ');
+  fprintf(fid,'%f',y1_step1_xoffset);
+  fprintf(fid,';\r\n');
   fprintf(fid,'#endif\r\n'); 
 
    

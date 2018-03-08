@@ -1,4 +1,10 @@
-
+/*******************************************************************************
+*描述：	标记图像中的红色线的位置，将位置保存在test_data_res.txt ,
+*		将所有的图片数据写入一个文件 test_data.yuv
+*注意：	运行以后鼠标左键为跳过当前图片，图片数据不会被写入test_data.yuv文件
+*		单击鼠标右键会标记当前光标所在位置的坐标的横坐标写入test_data_res.txt 
+*		图片分辨率为640*10 保存的图片为320*5  文件格式为jpeg
+********************************************************************************/
 
 #include <opencv2/opencv.hpp>  
 #include "stdio.h"
@@ -21,27 +27,6 @@ int mainrrrr()
 	IplImage *jpg_pic = cvLoadImage(filename,CV_LOAD_IMAGE_ANYCOLOR );
 	cvShowImage("material",jpg_pic);
 	static unsigned int pic_id = 3;
-
-	//while (1)
-	//{
-	//	
-
-	//	char fname[100];
-
-	//	sprintf(fname, "F:/sc_opencv/resheep/%drr.jpg", pic_id++);
-
-	//	jpg_pic = cvLoadImage(fname, CV_LOAD_IMAGE_ANYCOLOR);
-	//	
-	//	cvShowImage("material", jpg_pic);
-
-	//	printf("%s",fname);
-
-	//	waitKey(10);
-	//
-	//}
-
-
-
 
 	/*鼠标事件注册回调函数*/
 	cvSetMouseCallback("material", on_mouse, jpg_pic);

@@ -16,5 +16,7 @@ const double y1_step1_ymin = -1.000000;
 const double y1_step1_gain = 0.006472;
 const double y1_step1_xoffset = 5.000000;
 
+float pb_ann(unsigned char x[4800]);
+
 
 #endif

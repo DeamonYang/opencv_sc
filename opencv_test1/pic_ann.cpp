@@ -4,7 +4,7 @@
 #include<opencv2/highgui/highgui.hpp>
 #include <opencv2/ml/ml.hpp>
 #include "pic.h"
-#include "myNeuralNetworkFunction.h"
+
 #include "annpar.h"
 #include "stdio.h"
 
@@ -17,7 +17,12 @@ using namespace cv;
 /*输入神经元数目*/
 #define INP_LEN 4800
 
-/*图像处理神经网络*/
+/*************************************************************************
+*名称：图像处理神经网络
+*输入参数：图像数据输入为320*5*2个数据
+*返回值：计算的红色位置
+*作者：deamonyang
+************************************************************************/
 float pb_ann(unsigned char x[INP_LEN])
 {
 	int i,j;
@@ -72,7 +77,7 @@ float pb_ann(unsigned char x[INP_LEN])
 }
 
 
-int main(void)
+int mainnnnn(void)
 {
 	FILE *fd;
 	int i;
