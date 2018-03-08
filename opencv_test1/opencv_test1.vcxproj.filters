@@ -54,6 +54,18 @@
     <ClCompile Include="resheep.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="anntest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="find_cen.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="annw\myNeuralNetworkFunction.cpp">
+      <Filter>资源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pic_ann.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="net_server.h">
@@ -62,5 +74,19 @@
     <ClInclude Include="pic.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="annw\myNeuralNetworkFunction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myann.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="annpar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="annw\myNeuralNetworkFunction.lib">
+      <Filter>资源文件</Filter>
+    </Library>
   </ItemGroup>
 </Project>

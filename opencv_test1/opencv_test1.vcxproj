@@ -63,6 +63,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\CQU\Documents\Visual Studio 2013\Projects\opencv_test1\opencv_test1\annw\interface;C:\Users\CQU\Documents\Visual Studio 2013\Projects\opencv_test1\opencv_test1\annw;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\CQU\Documents\Visual Studio 2013\Projects\opencv_test1\opencv_test1\annw;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -103,16 +107,21 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <StackReserveSize>52428800</StackReserveSize>
+      <AdditionalLibraryDirectories>C:\Users\CQU\Documents\Visual Studio 2013\Projects\opencv_test1\opencv_test1\annw;C:\Users\CQU\Documents\Visual Studio 2013\Projects\opencv_test1\opencv_test1\annw\interface;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="anntest.cpp" />
+    <ClCompile Include="annw\myNeuralNetworkFunction.cpp" />
     <ClCompile Include="BDS_Server.c" />
     <ClCompile Include="binary.cpp" />
     <ClCompile Include="cap_pic.cpp" />
+    <ClCompile Include="find_cen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="net_server.c" />
     <ClCompile Include="opencv_client.cpp" />
     <ClCompile Include="opencv_server.cpp" />
+    <ClCompile Include="pic_ann.cpp" />
     <ClCompile Include="pic_pro.cpp" />
     <ClCompile Include="pro_vid.cpp" />
     <ClCompile Include="resheep.cpp" />
@@ -121,8 +130,14 @@
     <ClCompile Include="vcc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="annpar.h" />
+    <ClInclude Include="annw\myNeuralNetworkFunction.h" />
+    <ClInclude Include="myann.h" />
     <ClInclude Include="net_server.h" />
     <ClInclude Include="pic.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="annw\myNeuralNetworkFunction.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

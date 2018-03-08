@@ -15,13 +15,15 @@
 using namespace std;
 using namespace cv;
 
+void proc_dis(Mat pic);
+
 #pragma comment(lib,"ws2_32.lib")  
 #define  PORT 8088  
 
 #define PIC_LEN 1024*40
 
 
-int mainrrrr(int argc, char* argv[])
+int mainrrrrrr (int argc, char* argv[])
 {
 	int i;
 	
@@ -75,6 +77,8 @@ int mainrrrr(int argc, char* argv[])
 			data = imdecode(picbuf, CV_LOAD_IMAGE_COLOR);
 
 			imshow("data", data);
+			proc_dis(data);
+
 
 			/*将视频存储为文件*/
 			vector<int> parm(2);
@@ -102,5 +106,62 @@ int mainrrrr(int argc, char* argv[])
 	 
 	}
 	return 0;
+}
+
+
+
+void proc_dis(Mat pic)
+{
+	Mat gry;
+	Mat bina;
+//	cvtColor(pic, gry, CV_BGR2GRAY);  
+//	imshow("gry", gry);
+////	adaptiveThreshold(gry, bina, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY,5,0);
+//	threshold(gry, bina, 100, 255, THRESH_BINARY_INV);
+//	imshow("th", bina);
+	IplImage* jpg_pic = &IplImage(pic);
+	IplImage *hsv = cvCreateImage(cvGetSize(jpg_pic), jpg_pic->depth, jpg_pic->nChannels);
+ 
+	CvMat *outputImage;
+	int i, j;
+
+	cvCvtColor(jpg_pic, hsv, CV_BGR2HSV);
+
+	int width = hsv->width;
+	int height = hsv->height;
+	for (i = 0; i < height; i++)
+		for (j = 0; j < width; j++)
+		{
+			CvScalar s_hsv = cvGet2D(hsv, i, j);//获取像素点为（j, i）点的HSV的值   
+			/*
+			opencv 的H范围是0~180，红色的H范围大概是(0~8)∪(160,180)
+			S是饱和度，一般是大于一个值,S过低就是灰色（参考值S>80)，
+			V是亮度，过低就是黑色，过高就是白色(参考值220>V>50)。
+			*/
+			CvScalar s;
+			if (!(((s_hsv.val[0]>0) && (s_hsv.val[0]<8)) || (s_hsv.val[0]>120) && (s_hsv.val[0]<180)))
+			{
+				s.val[0] = 0;
+				s.val[1] = 0;
+				s.val[2] = 0;
+				cvSet2D(hsv, i, j, s);
+			}
+
+
+		}
+	outputImage = cvCreateMat(hsv->height, hsv->width, CV_8UC3);
+	Mat imghsv = cvarrToMat(hsv);
+	Mat mypic;
+	cvtColor(imghsv, mypic, CV_HSV2BGR);
+	imshow("mypic",mypic);
+
+	Mat element = getStructuringElement(MORPH_RECT, Size(5, 5));
+	morphologyEx(mypic, mypic, MORPH_OPEN, element);
+	morphologyEx(mypic, mypic, MORPH_CLOSE, element);
+
+	imshow("cut", mypic);
+
+
+
 }
 

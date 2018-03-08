@@ -113,11 +113,11 @@ using namespace cv;
 #define PIC_LEN 1024*15
 
 
-int mainvvvvv()
+int mainccccc()
 {
 	IplImage temp;
 	IplImage * img;
-	//	VideoCapture capture(0);
+	VideoCapture capture(0);
 	Mat src;
 	Mat data;
 	vector<uchar> buf;
@@ -129,45 +129,34 @@ int mainvvvvv()
 	//capture.set(CV_CAP_PROP_FRAME_WIDTH,320);
 	//capture.set(CV_CAP_PROP_FRAME_HEIGHT, 240);
 
+	char filename[100] = "F:/sc_opencv/resheep/train/0.jpg";
+	IplImage *jpg_pic = cvLoadImage(filename, CV_LOAD_IMAGE_ANYCOLOR);
+	cvShowImage("train",jpg_pic);
+
+	unsigned char picbuf[3 * 320 * 5];
+	for (int j = 0; j < jpg_pic->imageSize; j++)
+	{
+		picbuf[i] = jpg_pic->imageData[i];
+	
+	}
 
 
 	while (i)
 	{
-		//		capture >> src;
-
-		//parm[0] = CV_IMWRITE_JPEG_QUALITY;
-		//parm[1] = 80;
-		//		imencode(".jpg", src, buf, parm);
-		printf("%d", (int)buf.size());
-
-		//sprintf(filename, "%d.jpg", i++);
-
-		//imwrite(filename, src, parm);
+		capture >> src;
 
 
-		cout << buf.size() << endl;
+		imshow("src", src);
 
-		//vector<uchar> pic(buf.size());
-
-		//for (i = 0; i < buf.size(); i++)
-		//{
-		//	pic[i] = buf[i];
-		//}
-
-		vector<uchar> pic(9811);
+		resize(src,data,Size(320,240));
 
 
-		for (i = 0; i < 9811; i++)
-		{
-			pic[i] = my_pic[i];
-		}
 
-		data = imdecode(pic, CV_LOAD_IMAGE_COLOR);
+		imshow("data", data);
 
-		imshow("decode", data);
 
+	 
  
-
 		waitKey(3);
 	}
 

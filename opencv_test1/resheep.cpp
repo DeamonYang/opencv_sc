@@ -11,10 +11,14 @@
 using namespace cv;
 using namespace std;
 
-#define PIC_NUM 10
-#define WIDTH 20
+#define PIC_NUM 50
+#define WIDTH 10
 
-int main()
+#define STEP 8
+
+#define RD_STR 573
+
+int main3333()
 {
 	static int num = 1;
 	int parm[2];
@@ -26,20 +30,20 @@ int main()
 	int i, j;    
 
 
-	for (i = 0; i < PIC_NUM; i++)
+	for (i = RD_STR; i < RD_STR + PIC_NUM; i++)
 	{
-		sprintf(filename,"F:/sc_opencv/%d.jpg",i);
+		sprintf(filename,"F:/sc_opencv/seldata/%d.jpg",i);
 		/*´ò¿ªÍ¼Æ¬*/
 		jpg_pic = cvLoadImage(filename, CV_LOAD_IMAGE_ANYCOLOR);
 		cvShowImage("ori",jpg_pic);
-		for (j = 0; j < 480 / WIDTH; j++)
+		for (j = 0; j < 480 / WIDTH - STEP; j = j + STEP)
 		{
 
 			cvSetImageROI(jpg_pic, CvRect(0, j * WIDTH, 640, WIDTH));
 			sprintf(filename, "F:/sc_opencv/resheep/%drr.jpg", num++);
 			cvSaveImage(filename, jpg_pic, parm);
 			cvShowImage("resheep",jpg_pic);
-			waitKey(20);
+			waitKey(1);
 		}
 	}
 	return 0;
